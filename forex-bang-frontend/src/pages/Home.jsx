@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // import Googlemaps from "../components/Googlemaps";
 import Layout from "../components/Layout";
 import Learning from "../components/Learning";
@@ -19,13 +20,13 @@ const Home = () => {
               Transform from a novice trader to a Full-time/Part-time
               Professional Forex Trader and Financial Analyst.
             </p>
-            <button className="py-[0.5rem] px-[2rem] md:w-[80%] w-full rounded-xl text-2xl text-white font-bold bg-[#030C4B] hover:bg-[#2ECBF1] hover:text-[#030C4B]">
+            {/* <button className="py-[0.5rem] px-[2rem] md:w-[80%] w-full rounded-xl text-2xl text-white font-bold bg-[#030C4B] hover:bg-[#2ECBF1] hover:text-[#030C4B]">
               Get Started
-            </button>
+            </button> */}
             <aside className="flex gap-[2%] my-[1rem] flex-wrap justify-center">
-              <button className='py-[0.5rem]  rounded-lg px-[3rem] bg-[red]  my-[0.5rem] text-white font-bold' > mentorship</button>
-              <button className='py-[0.5rem] rounded-lg  px-[3rem] bg-[red] my-[0.5rem]  text-white font-bold' > Signals</button>
-              <button className='py-[0.5rem] rounded-lg  px-[3rem] bg-[red]  my-[0.5rem] text-white font-bold' > Exchange</button>
+            <Link to='/mentorship'> <button className='py-[0.5rem]  rounded-lg px-[3rem] bg-[red]  my-[0.5rem] text-white font-bold' > mentorship </button></Link>
+            <Link to='/signal'> <button className='py-[0.5rem] rounded-lg  px-[3rem] bg-[red] my-[0.5rem]  text-white font-bold' > signals </button></Link>
+            <Link to='/exchange'> <button className='py-[0.5rem] rounded-lg  px-[3rem] bg-[red]  my-[0.5rem] text-white font-bold' >  Exchange </button></Link>
             </aside>
           </div>
           {/* home wrapper */}
