@@ -27,7 +27,7 @@ function PaystackForm() {
    
     const paystack = new PaystackPop()
     paystack.newTransaction({
-      key:'pk_test_aca09eec94602ae4353d32290f8d1a781383a221',
+      key:'pk_live_268e1d4fb258db71ad85f8e00a757b2e085a96b2',
       amount:amount *100,
       email,
       
