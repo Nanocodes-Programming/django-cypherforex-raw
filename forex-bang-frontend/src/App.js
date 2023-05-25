@@ -46,7 +46,7 @@ const router = createBrowserRouter([
     element: <About />,
   },
   {
-    path: "/pay",
+    path: "/pay/:id",
     element: <PaystackForm />,
   },
 ]);

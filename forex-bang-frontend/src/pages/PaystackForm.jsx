@@ -1,12 +1,15 @@
 import { useState } from "react";
 import Layout from "../components/Layout";
 import Wrapper from '../components/Wrapper'
+import { useParams } from "react-router-dom";
 import PaystackPop from '@paystack/inline-js'
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function PaystackForm() {
-  const [amount, setAmount] = useState(0);
+  const {id} = useParams()
+  console.log(id);
+  const [amount, setAmount] = useState(id);
   const [email, setEmail] = useState("");
   // const [firstName, setFirstName] = useState("");
   // const [lastname, setLastname ] = useState("");
@@ -81,6 +84,7 @@ function PaystackForm() {
             min="0"
             step="0.01"
             required
+            disabled
             value={amount}
             onChange={handleAmountChange}
             className="w-full px-3 py-2 border rounded-md text-gray-700 focus:outline-none focus:shadow-outline-blue focus:border-blue-300"
