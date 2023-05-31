@@ -32,7 +32,7 @@ const ScrollCounter = () => {
           <h1 className="text-5xl mb-3 font-bold">
          {viewPortEntered && <CountUp end={5} duration={2} />}+
           </h1>
-          <p>Signals daily</p>
+          <p>Signals Weekly</p>
         </aside>
       </div>
     </ScrollTrigger>

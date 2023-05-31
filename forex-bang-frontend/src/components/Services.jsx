@@ -13,7 +13,7 @@ const service_data = [
   {
     title: "Forex Trade Signals",
     descrition:
-      "Earn on the go with CypherFx by copying our daily bases signals direct to your trading account.",
+      "Earn on the go with CypherFx by copying our daily basis signals direct to your trading account.",
     image: dollar,
   },
   {
@@ -51,10 +51,9 @@ const Services = () => {
 
       <div className="w-[80%] m-auto my-4 md:border-2 border-none rounded-[14px] p-[2rem] min-h-[250px] flex flex-col justify-around bg-transparent text-white md:bg-[#2ecbf180]">
         <p>
-          Lorem ipsum dolor sit amet consectetur. Eget pharetra in tortor
-          maecenas erat. Mus lobortis sit amet semper tellus euismod dolor
-          pulvinar. Laoreet suspendisse venenatis amet quis eget pulvinar nam.
-          Non vel mi sodales adipiscin
+          Recommended Broker
+          Create your living trading account with our recommended brokerage firm. I recommmend brokers based on my personal experience
+          with the broker.So far,below is the broker I use and which I recommend to all my mentorship students
         </p>
         <button className="w-[70%] block m-auto my-[1rem] rounded-md text-white font-bold py-[0.5rem] md:bg-[#030C4B] bg-[#2ECBF1] hover:bg-[#2ECBF1] hover:text-[#030C4B]">
           learn more

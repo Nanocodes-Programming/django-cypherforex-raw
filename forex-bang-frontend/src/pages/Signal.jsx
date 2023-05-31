@@ -42,8 +42,8 @@ const Signal = () => {
     <Layout>
       <Wrapper>
         {/* home wrapper */}
-        <div className="md:w-[40%] w-full text-left h-full flex flex-col justify-end md:p-[4rem] p-[2rem] items-start">
-          <img src={signal} alt="" />
+        <div className="md:w-[40%] w-full text-left  h-full flex flex-col justify-end md:p-[4rem] md:bg-transparent bg-black/30 backdrop-blur-sm p-[2rem] items-start">
+         <img src={signal} alt="" />
           <h1 className="text-4xl font-bold text-white">Forex Trade Signals</h1>
           <p className="text-2xl text-white   my-4">
             Earn on the go with CypherFx by copying our daily bases signals

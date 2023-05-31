@@ -10,7 +10,7 @@ const Exchanges = () => {
         {/* home wrapper */}
         <div className="md:w-[40%] w-full md:text-right text-center h-full md:bg-transparent bg-black/30 backdrop-blur-sm flex flex-col justify-end p-[4rem] items-start">
           <img src={dollar} alt="" className="mx-auto"/>
-          <h1 className="text-4xl font-bold text-white">
+          <h1 className="md:text-4xl text-xl font-bold text-white">
             Exchange With CypherForex Academy
           </h1>
         </div>
@@ -21,11 +21,11 @@ const Exchanges = () => {
         <Card
           price="100"
           lists={[
-            "Sell Bitcoins, Usdt and E-Wallet Funds (Perfect Money,  Skrill, Neteller,  Payoneer Funds) with CypherFx at good rates",
+            "Exchange Bitcoins, USDT and E-Wallet Funds (Skrill,Perfect Money, Neteller,  Payoneer Funds) for naira with CypherFx at good rates",
 
-            "» Good Rate",
-            "» Fast and Secured",
-            "» Minimum Trade Amount ✅",
+            // "» Good Rate",
+            // "» Fast and Secured",
+            // "» Minimum Trade Amount ✅",
           ]}
         />
       </div>

@@ -9,7 +9,7 @@ const MoreServices = () => {
   const services = [
     {
       title: "  Forex Fundamental & Technical  Course",
-      text: "Improvise yours trading skills with Cypher's beginner, Intermediate and advanced courses and videos. Be among the next gen of Cypher Fx Millionaire team by just sinking what we teach as our teachings are as effect and practically based.",
+      text: "Improvise yours trading skills with Cypher's beginner, Intermediate and advanced courses and videos. Be among the next gen of Cypher Fx Millionaire team by just sinking what we teach and putting it into practice consistently because our mentorship is as effective and practically based.",
       img: graduate,
     },
     {

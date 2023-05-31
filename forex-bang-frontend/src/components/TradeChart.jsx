@@ -8,10 +8,10 @@ const TradeChart = () => {
       <div className="md:flex block justify-between gap-2 py-[1.5rem] w-[80%] m-auto items-center text-white ">
         <aside className="basis-[49%]">
           <p className="my-4 text-2xl">
-            Lorem ipsum dolor sit amet consectetur. Eget pharetra in tortor
-            maecenas erat. Mus lobortis sit amet semper tellus euismod dolor
-            pulvinar. Laoreet suspendisse venenatis amet quis eget pulvinar nam.
-            Non vel mi sodales adipiscin
+            Join CypherFx community
+
+            We have a Telegram Community where we take care of Technicals and Fundamentals of Forex 
+            market daily and equally paste our free Trade Signals on a daily basis
           </p>
           <input
             type="text"

@@ -56,6 +56,9 @@ const Nav = ({footer}) => {
           <Link to="/contact">
             <li className="p-[0.5rem]  font-bold font-2xl">Contact us </li>
           </Link>
+          <Link to="/resource">
+            <li className="p-[0.5rem]  font-bold font-2xl">Resources </li>
+          </Link>
         </ul>
         {/* mobile view stats here  */}
         {navToggle && (
@@ -86,6 +89,9 @@ const Nav = ({footer}) => {
             </Link>
             <Link to="/contact">
               <li className="p-[0.5rem]  font-bold font-2xl">Contact us </li>
+            </Link>
+            <Link to="/resources">
+              <li className="p-[0.5rem]  font-bold font-2xl">Resources</li>
             </Link>
           </ul>
         )}
