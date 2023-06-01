@@ -1,5 +1,4 @@
-
-import React from 'react';
+import { useState, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -11,6 +10,7 @@ import Blogs from "./pages/Blogs";
 import Resources from "./pages/Resources";
 import PaystackForm from "./pages/PaystackForm";
 import { ToastContainer } from "react-toastify";
+import { RingLoader } from "react-spinners";
 
 const router = createBrowserRouter([
   {
@@ -51,10 +51,22 @@ const router = createBrowserRouter([
   },
 ]);
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    window.onload = () => {
+      setIsLoading(false);
+    };
+  }, []);
   return (
     <>
-      <ToastContainer />
-      <RouterProvider router={router} />
+      {isLoading && <div className="flex items-center justify-center h-[100vh] bg-black bg-opacity-50"><RingLoader color="#36d7b7" size={100} /></div>}
+      {!isLoading && (
+        <div>
+          <ToastContainer />
+          <RouterProvider router={router} />
+        </div>
+      )}
     </>
   );
 }

@@ -90,7 +90,7 @@ const Nav = ({footer}) => {
             <Link to="/contact">
               <li className="p-[0.5rem]  font-bold font-2xl">Contact us </li>
             </Link>
-            <Link to="/resources">
+            <Link to="/resource">
               <li className="p-[0.5rem]  font-bold font-2xl">Resources</li>
             </Link>
           </ul>

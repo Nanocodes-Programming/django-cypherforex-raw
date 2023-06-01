@@ -4,42 +4,30 @@ import chart from "../assets/img/chart3-svgrepo-com 1.png";
 import Card from "../components/Card";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
-
+import { BounceLoader } from "react-spinners";
 
 const Mentor = () => {
-  const [mentored, setMentored] = useState([])
+  const [mentored, setMentored] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   function bookInfo() {
-
-    // axios.get('/api/mentorshipprogram/?format=json')
-    //   .then(response => {
-    //     // Handle success
-
-    //    console.log(response)
-        
-        
-    //   })
-
-    axios.get('/api/mentorshipprogram/?format=json')
-    .then(response => {
-      // Handle success
-     // console.log(response)
-      const data = response.data.data
-      console.log(data)
-      setMentored(data)
-    })
-    .catch(error => {
-      // Handle error
-      console.log(error);
-    });
-     
-    
-
+    setLoading(true); // Start loading
+    axios
+      .get("/api/mentorshipprogram/?format=json")
+      .then((response) => {
+        const data = response.data.data;
+        setMentored(data);
+        setLoading(false); // Stop loading
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false); // Stop loading in case of error
+      });
   }
+
   useEffect(() => {
-    bookInfo()
-  }, [])
+    bookInfo();
+  }, []);
 
   // console.log(mentored)
   return (
@@ -51,27 +39,29 @@ const Mentor = () => {
           <h1 className="text-4xl font-bold text-white">Mentorship Program</h1>
           <p className="text-2xl text-white   my-4">
             Exclusive Mentorship Program Get the best One-on-One Private
-            Training you could ever imagine both online and offline with CypherFx
-            Expert Team.
+            Training you could ever imagine both online and offline with
+            CypherFx Expert Team.
           </p>
         </div>
         {/* home wrapper */}
         {/* services starts here */}
       </Wrapper>
-      <div className=" bg-[url('/src/assets/img/forexbg.png')] pb-[5rem]  bg-cover bg-center">
-        {mentored?.map(menty => {
-          return (
-            <Card
-              key={menty.id}
-              price={menty.price}
-              title={menty.packagename}
-              lists={menty.features}
-            />
-          )
-        })}
-    
-   
-      </div>
+      {loading ? (
+        <BounceLoader color="#36d7b7" />
+      ) : (
+        <div className=" bg-[url('/src/assets/img/forexbg.png')] pb-[5rem]  bg-cover bg-center">
+          {mentored?.map((menty) => {
+            return (
+              <Card
+                key={menty.id}
+                price={menty.price}
+                title={menty.packagename}
+                lists={menty.features}
+              />
+            );
+          })}
+        </div>
+      )}
     </Layout>
   );
 };

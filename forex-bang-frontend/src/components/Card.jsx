@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Card = ({ lists, title, price,type }) => {
-  
+  const currentPath = window.location.pathname;
 
   const oneof = "[One-Off]";
   return (
@@ -24,7 +24,7 @@ const Card = ({ lists, title, price,type }) => {
         
         <Link to={`/pay/${price}`}>
         <button className="w-full hidden md:block mx-auto my-[1rem] rounded-md text-white font-bold py-[0.5rem] bg-[#2ECBF1] hover:bg-[#2ECBF1] hover:text-[#030C4B]">
-          Subscribe
+         {currentPath === '/exchange'?'Exchange':'Subscribe'} 
         </button>
         </Link>
       </div>
