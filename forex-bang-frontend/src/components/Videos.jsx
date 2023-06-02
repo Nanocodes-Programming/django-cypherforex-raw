@@ -1,5 +1,4 @@
-import first from "../assets/img/03.React Formik Tutorial - 3 - useFormik Hook.mp4";
-import pexel1 from "../assets/img/pexels-godisable-jacob-1027162.jpg";
+
 import Swiperjs from "./Swiperjs";
 import { SwiperSlide } from "swiper/react";
 import axios from "axios";

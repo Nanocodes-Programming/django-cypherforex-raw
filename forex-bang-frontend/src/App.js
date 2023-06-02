@@ -12,6 +12,7 @@ import PaystackForm from "./pages/PaystackForm";
 import { ToastContainer } from "react-toastify";
 import { RingLoader } from "react-spinners";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -60,11 +61,17 @@ function App() {
   }, []);
   return (
     <>
-      {isLoading && <div className="flex items-center justify-center h-[100vh] bg-black bg-opacity-50"><RingLoader color="#36d7b7" size={100} /></div>}
+      {isLoading && (
+        <div className="flex items-center justify-center h-[100vh] bg-black bg-opacity-50">
+          <RingLoader color="#36d7b7" size={100} />
+        </div>
+      )}
       {!isLoading && (
         <div>
-          <ToastContainer />
-          <RouterProvider router={router} />
+          
+            <ToastContainer />
+            <RouterProvider router={router} />
+          
         </div>
       )}
     </>

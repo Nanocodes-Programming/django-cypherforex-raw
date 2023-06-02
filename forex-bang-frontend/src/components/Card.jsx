@@ -11,9 +11,11 @@ const Card = ({ lists, title, price,type }) => {
         {lists?.map((listed) => {
           return <li key={listed} className="text-[16px]">{listed}</li>;
         })}
+         <Link to={`/pay/${price}`}>
         <button className="w-full md:hidden m-4 block mx-auto my-[1rem] rounded-md text-white font-bold py-[0.5rem] bg-[#2ECBF1] hover:bg-[#2ECBF1] hover:text-[#030C4B]">
-          Subscribe
+        {currentPath === '/exchange'?'Exchange':'Subscribe'} 
         </button>
+        </Link>
       </ul>
 
       <div className="basis-[40%] text-center">

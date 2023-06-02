@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/img/logo.png";
+
 import { HiMenuAlt3 } from "react-icons/hi";
 import { MdClose } from "react-icons/md";
 
@@ -11,6 +11,13 @@ const Nav = ({footer}) => {
   const [navScroll, setNavScroll] = useState(false);
   const [navToggle, setNavToggle] = useState(true);
 
+  const handleLinkClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+    console.log('ups')
+  };
   // changenavbg
   const changeBg = () => {
     window.scrollY >= 80 ? setNavScroll(true) : setNavScroll(false);
@@ -41,22 +48,22 @@ const Nav = ({footer}) => {
           </div>
         </Link>
         <ul className="hidden md:flex justify-between items-center text-white">
-          <Link to="/mentorship">
+          <Link to="/mentorship" onClick={handleLinkClick}>
             <li className="p-[0.5rem] font-bold font-2xl">Mentorship</li>
           </Link>
-          <Link to="/signal">
+          <Link to="/signal" onClick={handleLinkClick}>
             <li className="p-[0.5rem]  font-bold font-2xl">Signals</li>
           </Link>
-          <Link to="/exchange">
+          <Link to="/exchange" onClick={handleLinkClick}>
             <li className="p-[0.5rem] font-bold font-2xl">Exchange</li>
           </Link>
-          <Link to="/about">
+          <Link to="/about" onClick={handleLinkClick}>
             <li className="p-[0.5rem]  font-bold font-2xl">About us </li>
           </Link>
-          <Link to="/contact">
+          <Link to="/contact" onClick={handleLinkClick}>
             <li className="p-[0.5rem]  font-bold font-2xl">Contact us </li>
           </Link>
-          <Link to="/resource">
+          <Link to="/resource" onClick={handleLinkClick}>
             <li className="p-[0.5rem]  font-bold font-2xl">Resources </li>
           </Link>
         </ul>
@@ -75,22 +82,22 @@ const Nav = ({footer}) => {
         )}
         {!navToggle && (
           <ul className="flex items-center w-[50%] navy justify-center flex-col z-100 bg-slate-100 p-2 rounded absolute top-[90%] right-3">
-            <Link to="/mentorship">
+            <Link to="/mentorship" onClick={handleLinkClick}>
               <li className="p-[0.5rem] font-bold font-2xl">Mentorship</li>
             </Link>
-            <Link to="/signal">
+            <Link to="/signal" onClick={handleLinkClick}>
               <li className="p-[0.5rem]  font-bold font-2xl">Signals</li>
             </Link>
-            <Link to="/exchange">
+            <Link to="/exchange" onClick={handleLinkClick}>
               <li className="p-[0.5rem] font-bold font-2xl">Exchange</li>
             </Link>
-            <Link to="/about">
+            <Link to="/about" onClick={handleLinkClick}>
               <li className="p-[0.5rem]  font-bold font-2xl">About us </li>
             </Link>
-            <Link to="/contact">
+            <Link to="/contact" onClick={handleLinkClick}>
               <li className="p-[0.5rem]  font-bold font-2xl">Contact us </li>
             </Link>
-            <Link to="/resource">
+            <Link to="/resource" onClick={handleLinkClick}>
               <li className="p-[0.5rem]  font-bold font-2xl">Resources</li>
             </Link>
           </ul>
