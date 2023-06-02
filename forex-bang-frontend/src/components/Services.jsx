@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import chart from "../assets/img/chart3-svgrepo-com 1.png";
 import dollar from "../assets/img/dollar-and-bitcoin-exchange-svgrepo-com 1.png";
 import group from "../assets/img/Group 121.png";
@@ -49,15 +49,20 @@ const Services = () => {
         })}
       </div>
 
-      <div className="w-[80%] m-auto my-4 md:border-2 border-none rounded-[14px] p-[2rem] min-h-[250px] flex flex-col justify-around bg-transparent text-white md:bg-[#2ecbf180]">
+      <div className="md:w-[80%] w-full m-auto my-4 md:border-2 border-none rounded-[14px] p-[2rem] min-h-[250px] flex flex-col justify-around bg-transparent text-white md:bg-[#2ecbf180]">
+        <h2 className="text-center font-bold md:text-3xl text-2xl mb-[1rem]">Recommended Broker</h2>
         <p>
-          Recommended Broker
-          Create your living trading account with our recommended brokerage firm. I recommmend brokers based on my personal experience
-          with the broker.So far,below is the broker I use and which I recommend to all my mentorship students
+          Recommended Broker Create your living trading account with our
+          recommended brokerage firm. I recommmend brokers based on my personal
+          experience with the broker.So far,below is the broker I use and which
+          I recommend to all my mentorship students
         </p>
-        <button className="w-[70%] block m-auto my-[1rem] rounded-md text-white font-bold py-[0.5rem] md:bg-[#030C4B] bg-[#2ECBF1] hover:bg-[#2ECBF1] hover:text-[#030C4B]">
-          learn more
-        </button>
+        <a href="https://one.exness-track.com/a/r23hilbd65" target='_blank'>
+          {" "}
+          <button className="w-[70%] block m-auto my-[1rem] rounded-md text-white font-bold py-[0.5rem] md:bg-[#030C4B] bg-[#2ECBF1] hover:bg-[#2ECBF1] hover:text-[#030C4B]">
+            sign up
+          </button>
+        </a>
       </div>
     </>
   );
