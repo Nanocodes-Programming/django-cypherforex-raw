@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import chart from "../assets/img/chart3-svgrepo-com 1.png";
 import dollar from "../assets/img/dollar-and-bitcoin-exchange-svgrepo-com 1.png";
 import group from "../assets/img/Group 121.png";
@@ -9,20 +10,31 @@ const service_data = [
     descrition:
       "Transformed from a novice trader to a Full-time/Part-time Professional Forex Trader/Financial Analyst.",
     image: chart,
+    link:'/mentorship'
   },
   {
     title: "Forex Trade Signals",
     descrition:
       "Earn on the go with CypherFx by copying our daily basis signals direct to your trading account.",
     image: dollar,
+    link:'/signal'
   },
   {
     title: "Exchange With CypherForex Academy",
     descrition:
       "Sell Bitcoins, Usdt and E-Wallet Funds (Perfect Money,  Skrill, Neteller,  Payoneer Funds) with CypherFx at good rates",
     image: group,
+    link:'/exchange'
   },
 ];
+
+const handleLinkClick = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+  console.log('ups')
+};
 
 const Services = () => {
   return (
@@ -41,9 +53,11 @@ const Services = () => {
 
               <p className="my-[1rem]"> {service.descrition}</p>
 
-              <button className="w-[70%] mx-auto my-[1rem] rounded-md text-white font-bold py-[0.5rem] bg-[#030C4B] hover:bg-[#2ECBF1] hover:text-[#030C4B]">
+             <Link to={service.link} onClick={handleLinkClick}>
+             <button className="w-[70%] mx-auto my-[1rem] rounded-md text-white font-bold py-[0.5rem] bg-[#030C4B] hover:bg-[#2ECBF1] hover:text-[#030C4B]">
                 learn more
               </button>
+             </Link>
             </div>
           );
         })}
