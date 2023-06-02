@@ -34,7 +34,7 @@ const FooterContact = ({footer}) => {
               </span>
             {foot.address}
             </li>
-            <li className="flex justify-around my-[1rem] "><BsFacebook className="text-2xl cursor-pointer" />  <BsTwitter className="text-2xl cursor-pointer" /> <BsInstagram className="text-2xl cursor-pointer" /> <BsTelegram className="text-2xl cursor-pointer" /> <BsYoutube className="text-2xl cursor-pointer" /></li>
+            <li className="flex justify-around my-[1rem] "><BsFacebook className="text-2xl cursor-pointer" /> <a href="https://twitter.com/Cypher_Forex?t=llPliIDiN1gLF-ovBJYckw&s=09"><BsTwitter className="text-2xl cursor-pointer" /></a> <a href="https://instagram.com/cyber_forex_fx?igshid=MzNlNGNkZWQ4Mg=="><BsInstagram className="text-2xl cursor-pointer" /></a>  <a href="https://t.me/CypherforexAcademy"><BsTelegram className="text-2xl cursor-pointer" /></a> <a href="https://youtube.com/@CypherForexAcademy"><BsYoutube className="text-2xl cursor-pointer" /></a> </li>
           </ul>
         )
       })}
