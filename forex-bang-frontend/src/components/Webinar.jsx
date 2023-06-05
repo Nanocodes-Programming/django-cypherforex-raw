@@ -37,7 +37,9 @@ const Webinar = () => {
         </p>
         {/* <section className="grid sm:grid-cols-2 md:grid-cols-3 grid-cols-1 p-[1rem] justify-center "> */}
         {loading ? (
-          <BounceLoader />
+         <div className="flex items-center justify-center">
+         <BounceLoader color="#36d7b7" size={100}/>
+       </div>
         ) : (
           <>
             {seminars.map((seminar) => {

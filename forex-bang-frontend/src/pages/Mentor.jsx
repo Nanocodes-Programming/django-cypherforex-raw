@@ -47,7 +47,9 @@ const Mentor = () => {
         {/* services starts here */}
       </Wrapper>
       {loading ? (
-        <BounceLoader color="#36d7b7" />
+       <div className="flex items-center justify-center">
+         <BounceLoader color="#36d7b7" size={100}/>
+       </div>
       ) : (
         <div className=" bg-[url('/src/assets/img/forexbg.png')] pb-[5rem]  bg-cover bg-center">
           {mentored?.map((menty) => {

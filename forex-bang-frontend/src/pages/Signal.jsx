@@ -47,7 +47,9 @@ const Signal = () => {
         {/* services starts here */}
       </Wrapper>
       {loading ? (
-        <BounceLoader color="#36d7b7" />
+        <div className="flex items-center justify-center">
+         <BounceLoader color="#36d7b7" size={100}/>
+       </div>
       ) : (
         <div className="min-h-[400px] bg-[url('/src/assets/img/forexbg.png')]   bg-cover bg-center">
           {signals?.map((menty) => {
