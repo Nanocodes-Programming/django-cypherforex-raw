@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import Wrapper from '../components/Wrapper'
 import { useParams } from "react-router-dom";
 import PaystackPop from '@paystack/inline-js'
+import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -11,9 +12,27 @@ function PaystackForm() {
   console.log(id);
   const [amount, setAmount] = useState(id);
   const [email, setEmail] = useState("");
-  // const [firstName, setFirstName] = useState("");
-  // const [lastname, setLastname ] = useState("");
+  const [ipInfo, setIpInfo] = useState({});
 
+  useEffect(() => {
+    const getIpInfo = async () => {
+      try {
+        const responseIp = await axios.get('https://api.ipify.org?format=json');
+        console.log(responseIp.data.ip)
+
+        const responseInfo = await axios.get(`http://ip-api.com/json/${responseIp.data.ip}`);
+        // const responseInfo = await axios.get(`https://ipinfo.io/${responseIp.data.ip}?token=your_token`);
+        setIpInfo(responseInfo.data.countryCode);
+        // console.log(responseInfo.data.countryCode)
+      } catch (error) {
+        console.error("Error: ", error);
+      }
+    }
+  
+    getIpInfo();
+  }, []);
+
+  console.log(ipInfo)
   const handleAmountChange = (e) => {
     setAmount(e.target.value);
   };
@@ -21,49 +40,59 @@ function PaystackForm() {
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
+  
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-   
-    const paystack = new PaystackPop()
-    paystack.newTransaction({
-      key:'pk_live_268e1d4fb258db71ad85f8e00a757b2e085a96b2',
-      amount:amount *100,
-      email,
-      
-      onSuccess(transaction){
-        let message = `payment complete! Reference ${transaction.reference}`
-        setAmount('')
-        setEmail('')
-        toast.success(message, {
-          position: "bottom-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
 
-      },
-      onCancel(){
-        toast.error("🦄 Transaction Cancelled!", {
-          position: "bottom-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      }
-    })
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    
-    // Use Paystack API to initiate payment with the amount and email provided
-  };
+
+  const currency = ipInfo === 'NG' ? 'NGN' : 'USD'; 
+  let factor;
+  if (currency === 'NGN') {
+    factor = 100 * 700; // Convert Naira to Kobo
+  } else {
+    factor = 100; // Convert USD to cents to  to USD
+  }
+  console.log(currency);
+  
+  const paystack = new PaystackPop()
+  paystack.newTransaction({
+    key: 'pk_live_268e1d4fb258db71ad85f8e00a757b2e085a96b2',
+    amount: amount * factor,
+    email,
+    currency,
+
+    onSuccess(transaction){
+      let message = `payment complete! Reference ${transaction.reference}`
+      setAmount('')
+      setEmail('')
+      toast.success(message, {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    },
+    onCancel(){
+      toast.error("🦄 Transaction Cancelled!", {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  })
+};
+
 
   return (
     <Layout>
