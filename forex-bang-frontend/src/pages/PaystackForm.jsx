@@ -44,6 +44,9 @@ function PaystackForm() {
 
 
 const handleSubmit = async (e) => {
+if(email === ''){
+  return
+}
   e.preventDefault();
 
 
@@ -54,7 +57,7 @@ const handleSubmit = async (e) => {
   } else {
     factor = 100; // Convert USD to cents to  to USD
   }
-  console.log(currency);
+
   
   const paystack = new PaystackPop()
   paystack.newTransaction({
