@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function PaystackForm() {
   const {id} = useParams()
-  console.log(id);
+  // console.log(id);
   const [amount, setAmount] = useState(id);
   const [email, setEmail] = useState("");
   const [ipInfo, setIpInfo] = useState({});
@@ -17,12 +17,14 @@ function PaystackForm() {
   useEffect(() => {
     const getIpInfo = async () => {
       try {
-        const responseIp = await axios.get('https://api.ipify.org?format=json');
-        console.log(responseIp.data.ip)
+        const responseIp = await axios.get('https://api.ipgeolocation.io/ipgeo/?apiKey=fbd8438054b94e6a89d2c06b071f4165');
+        // console.log(responseIp.data.currency.code);
 
-        const responseInfo = await axios.get(`http://ip-api.com/json/${responseIp.data.ip}`);
+        // const responseInfo = await axios.get(`http://ip-api.com/json/${responseIp.data.ip}`);
+        const responseInfo = responseIp.data.currency.code;
         // const responseInfo = await axios.get(`https://ipinfo.io/${responseIp.data.ip}?token=your_token`);
-        setIpInfo(responseInfo.data.countryCode);
+        setIpInfo(responseInfo);
+        console.log(ipInfo)
         // console.log(responseInfo.data.countryCode)
       } catch (error) {
         console.error("Error: ", error);
@@ -30,9 +32,9 @@ function PaystackForm() {
     }
   
     getIpInfo();
-  }, []);
+  }, [ipInfo]);
 
-  console.log(ipInfo)
+  // console.log(ipInfo)
   const handleAmountChange = (e) => {
     setAmount(e.target.value);
   };
@@ -50,12 +52,14 @@ if(email === ''){
   e.preventDefault();
 
 
-  const currency = ipInfo === 'NG' ? 'NGN' : 'USD'; 
+  const currency = ipInfo; 
   let factor;
   if (currency === 'NGN') {
     factor = 100 * 700; // Convert Naira to Kobo
+    console.log('am around');
   } else {
     factor = 100; // Convert USD to cents to  to USD
+    console.log('am not around');
   }
 
   
@@ -116,7 +120,7 @@ if(email === ''){
             min="0"
             step="0.01"
             required
-            disabled
+            // disabled
             value={amount}
             onChange={handleAmountChange}
             className="w-full px-3 py-2 border rounded-md text-gray-700 focus:outline-none focus:shadow-outline-blue focus:border-blue-300"
