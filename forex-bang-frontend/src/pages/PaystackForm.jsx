@@ -12,21 +12,21 @@ function PaystackForm() {
   // console.log(id);
   const [amount, setAmount] = useState(id);
   const [email, setEmail] = useState("");
-  const [ipInfo, setIpInfo] = useState({});
+  // const [ipInfo, setIpInfo] = useState({});
 
-  useEffect(() => {
-    const getIpInfo = async () => {
-      try {
-        const responseIp = await axios.get('https://api.ipgeolocation.io/ipgeo/?apiKey=fbd8438054b94e6a89d2c06b071f4165');
-        const responseInfo = responseIp.data.currency.code;
-        setIpInfo(responseInfo);
-      } catch (error) {
-        console.error("Error: ", error);
-      }
-    }
+  // useEffect(() => {
+  //   const getIpInfo = async () => {
+  //     try {
+  //       const responseIp = await axios.get('https://api.ipgeolocation.io/ipgeo/?apiKey=fbd8438054b94e6a89d2c06b071f4165');
+  //       const responseInfo = responseIp.data.currency.code;
+  //       setIpInfo(responseInfo);
+  //     } catch (error) {
+  //       console.error("Error: ", error);
+  //     }
+  //   }
   
-    getIpInfo();
-  }, [ipInfo]);
+  //   getIpInfo();
+  // }, [ipInfo]);
 
   // console.log(ipInfo)
   const handleAmountChange = (e) => {
@@ -46,7 +46,8 @@ if(email === ''){
   e.preventDefault();
 
 
-  const currency = ipInfo; 
+  // const currency = ipInfo; 
+  const currency = 'NGN'; 
   let factor;
   if (currency === 'NGN') {
     factor = 100 * 700; // Convert Naira to Kobo
